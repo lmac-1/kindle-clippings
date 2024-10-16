@@ -1,4 +1,5 @@
-import { Clipping, Quote } from '../Quote';
+import { Clipping } from '@/store/clippingStore';
+import { Quote } from '@/components/Quote';
 
 type Props = {
   quotes: Clipping[];

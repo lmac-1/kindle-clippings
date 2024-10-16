@@ -1,1 +1,1 @@
-export { Quote, type Clipping } from './Quote';
+export { Quote } from './Quote';

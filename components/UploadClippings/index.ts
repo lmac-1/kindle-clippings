@@ -1,0 +1,1 @@
+export { UploadClippings } from './UploadClippings';

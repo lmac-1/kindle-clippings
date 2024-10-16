@@ -1,10 +1,19 @@
 'use client';
 
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Button } from '../Button';
+import useClippingStore from '@/store/clippingStore';
 
-export const UploadForm = () => {
+export const UploadClippings = () => {
   const [file, setFile] = useState<File | null>(null);
+  const updateClippings = useClippingStore((state) => state.updateData);
+  const quotes = useClippingStore((state) => state.quotes);
+  const authors = useClippingStore((state) => state.authors);
+  const books = useClippingStore((state) => state.books);
+
+  useEffect(() => {
+    console.log('from store:', { quotes, authors, books });
+  }, [quotes, authors, books]);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0] || null;
@@ -23,12 +32,14 @@ export const UploadForm = () => {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:3000/api/py/upload', {
+      const response = await fetch('/api/py/upload', {
         method: 'POST',
         body: formData,
       });
       // todo: error handling
       const { clippings } = await response.json();
+      updateClippings(clippings);
+
       console.log({ clippings });
     } catch (error) {
       console.log({ error });

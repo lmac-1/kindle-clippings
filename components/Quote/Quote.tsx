@@ -1,11 +1,5 @@
+import { Clipping } from '@/store/clippingStore';
 import Link from 'next/link';
-
-export type Clipping = {
-  book: string;
-  author: string;
-  quote: string;
-  date: string;
-};
 
 type Props = {
   clipping: Clipping;
