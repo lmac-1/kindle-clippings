@@ -10,7 +10,7 @@ export const Button = ({ children, className }: Props) => {
   return (
     <button
       className={cn(
-        'bg-blue-600 text-white focus:ring-2 focus:ring-offset-2 focus:outline-none rounded-md px-4 font-medium py-1 hover:bg-blue-700 transition-colors',
+        'bg-violet-600 text-white focus:ring-2 focus:ring-violet-300 focus:ring-offset-2 focus:outline-none rounded-full px-6 font-medium py-2 hover:bg-violet-700 transition-colors',
         className
       )}
     >

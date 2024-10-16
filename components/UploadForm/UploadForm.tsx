@@ -42,7 +42,7 @@ export const UploadForm = () => {
       <input
         id="file"
         type="file"
-        className="block mb-4"
+        className="block text-slate-500 focus:ring-2 outline-none rounded-full focus:ring-violet-400 text-sm mb-4 file:mr-4 file:py-2 file:px-4 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 file:border-0 file:rounded-full"
         onChange={handleFileChange}
       />
       <Button>Upload</Button>

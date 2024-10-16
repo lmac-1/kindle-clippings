@@ -22,8 +22,11 @@ export const Quote = ({ clipping }: Props) => {
       </blockquote>
       <figcaption className="text-sm text-right text-gray-600">
         <cite>
-          <Link href={bookLink}>
-            <span className="font-semibold">{book}</span>
+          <Link
+            className="outline-none focus:ring-2   focus:ring-offset-2 focus:ring-violet-300 font-semibold"
+            href={bookLink}
+          >
+            {book}
           </Link>{' '}
         </cite>
         <p className="italic">{date}</p>

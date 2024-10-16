@@ -9,13 +9,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Summary totalQuotes={quotes.length} totalBooks={books.length} />
       <div className="mt-4 mb-8 flex gap-6 justify-center">
         <Link
-          className="text-blue-800 hover:text-blue-900 font-semibold block text-center"
+          className="text-violet-700 outline-none focus:ring-2 rounded-md focus:ring-offset-2 focus:ring-violet-300 hover:text-violet-900 font-semibold block text-center"
           href="/quotes"
         >
           All quotes
         </Link>
         <Link
-          className="text-blue-800 hover:text-blue-900 font-semibold block text-center"
+          className="text-violet-700 outline-none focus:ring-2 rounded-md focus:ring-offset-2 focus:ring-violet-300 hover:text-violet-900 font-semibold block text-center"
           href="/quotes/books"
         >
           All books

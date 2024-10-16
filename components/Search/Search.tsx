@@ -24,7 +24,7 @@ export const Search = ({ totalQuotes }: { totalQuotes: number }) => {
       <input
         onChange={handleSearch}
         placeholder="Search..."
-        className="border rounded-md px-4 mb-2 py-2 w-full focus:ring-2 outline-none focus:ring-blue-800/50 focus:ring-offset-1"
+        className="border rounded-md px-4 mb-2 py-2 w-full focus:ring-2 outline-none focus:ring-violet-300 focus:ring-offset-1"
       />
       <p>
         {totalQuotes} quote{totalQuotes > 1 && 's'} found
