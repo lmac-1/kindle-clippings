@@ -31,7 +31,7 @@ async def upload_kindle_clippings(file: UploadFile | None = None):
         "books": processed_clippings["books"]
     }
 
-    return {"output": output}
+    return {"clippings": output}
     
 def process_author_name(author: str) -> str: 
     """Processes the author's name to a standardised format"""
