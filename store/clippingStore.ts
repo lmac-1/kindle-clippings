@@ -1,10 +1,12 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 type Store = {
   quotes: Quotes;
   books: Books;
   authors: Authors;
   updateData: (data: ClippingData) => void;
+  resetData: () => void;
 };
 
 export type Clipping = {
@@ -24,16 +26,24 @@ type ClippingData = {
   authors: Authors;
 };
 
-const useClippingStore = create<Store>((set) => ({
-  quotes: null,
-  books: null,
-  authors: null,
-  updateData: (data: ClippingData) =>
-    set({
-      quotes: data.quotes,
-      books: data.books,
-      authors: data.authors,
+const initialState = { quotes: null, books: null, authors: null };
+
+const useClippingStore = create<Store>()(
+  persist(
+    (set, get) => ({
+      ...initialState,
+      updateData: (data: ClippingData) =>
+        set({
+          quotes: data.quotes,
+          books: data.books,
+          authors: data.authors,
+        }),
+      resetData: () => set(initialState),
     }),
-}));
+    {
+      name: 'kindle-clippings',
+    }
+  )
+);
 
 export default useClippingStore;

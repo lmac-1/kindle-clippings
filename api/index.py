@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile
+from fastapi import FastAPI, UploadFile, HTTPException
 import re
 from datetime import datetime
 
@@ -12,8 +12,9 @@ def hello_fast_api():
 @app.post("/api/py/upload")
 async def upload_kindle_clippings(file: UploadFile | None = None):
     """Handles the upload and processing of Kindle clippings text file"""
+
     if not file:
-        return {"message:": "No file uploaded"}
+        raise HTTPException(status_code=400, detail="No file uploaded")
     
     # Read and decode file contents
     contents = await file.read()

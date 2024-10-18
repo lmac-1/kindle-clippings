@@ -1,5 +1,6 @@
+'use client';
 import { QuoteList } from '@/components/QuoteList';
-import { data } from '@/data/quotes';
+import useClippingStore from '@/store/clippingStore';
 import Link from 'next/link';
 
 type Props = {
@@ -8,7 +9,9 @@ type Props = {
 
 export default function BooksPage({ searchParams }: Props) {
   const { title } = searchParams;
-  const { books, quotes } = data;
+  const { books, quotes } = useClippingStore();
+
+  if (!quotes || !books) return 'No quotes/books found';
 
   // Book view
   if (title) {

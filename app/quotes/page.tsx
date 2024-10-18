@@ -1,6 +1,7 @@
+'use client';
 import { QuoteList } from '@/components/QuoteList';
 import { Search } from '@/components/Search';
-import { data } from '@/data/quotes';
+import useClippingStore from '@/store/clippingStore';
 
 type Props = {
   searchParams: {
@@ -10,7 +11,11 @@ type Props = {
 
 export default function QuotesPage({ searchParams }: Props) {
   const { search } = searchParams;
-  const { quotes: rawQuotes } = data;
+  const { quotes: rawQuotes } = useClippingStore();
+
+  if (!rawQuotes) {
+    return 'No quotes found';
+  }
 
   const quotes = search
     ? rawQuotes.filter((quote) =>
