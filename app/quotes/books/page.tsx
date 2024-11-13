@@ -25,7 +25,9 @@ export default function BooksPage({ searchParams }: Props) {
           &#8592; Back to book list
         </Link>
         <div className="mb-4 bg-violet-50 text-violet-700 rounded-md px-6 py-4">
-          <h2 className="font-semibold text-xl mb-2">{parsedTitle}</h2>
+          <h2 className="font-semibold text-xl mb-2 break-words">
+            {parsedTitle}
+          </h2>
           <p className="text-gray-700 text-sm">
             {totalQuotes} quote{totalQuotes > 1 && 's'} found
           </p>
