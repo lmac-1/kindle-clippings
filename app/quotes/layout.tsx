@@ -7,15 +7,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const { quotes, books } = useClippingStore();
 
   if (!quotes && !books) {
-    return (
-      <div className="max-w-lg mx-auto text-center py-8">
-        Oops! No clippings found.
-      </div>
-    );
+    return <>Oops! No clippings found.</>;
   }
 
   return (
-    <div className="max-w-lg mx-auto py-8">
+    <>
       {quotes && books && (
         <Summary totalQuotes={quotes.length} totalBooks={books.length} />
       )}
@@ -36,6 +32,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       )}
       {children}
-    </div>
+    </>
   );
 }

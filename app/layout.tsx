@@ -37,7 +37,7 @@ export default function RootLayout({
           </Link>
           <ResetStoreButton />
         </nav>
-        <div className="grow">{children}</div>
+        <div className="grow max-w-xl mx-auto py-10">{children}</div>
         <Footer />
       </body>
     </html>

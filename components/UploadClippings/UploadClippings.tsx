@@ -63,9 +63,9 @@ export const UploadClippings = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-      <label className="block text-xl font-medium" htmlFor="file">
-        Upload Kindle clippings
+    <form onSubmit={handleSubmit} className="flex w-full flex-col gap-6">
+      <label className="block text-xl font-bold" htmlFor="file">
+        Upload clippings
       </label>
       <input
         id="file"
@@ -73,7 +73,9 @@ export const UploadClippings = () => {
         className="block border border-gray-100 text-slate-500 focus:ring-2 outline-none rounded-full focus:ring-violet-400 text-sm mb-4 file:mr-4 file:py-2 file:px-4 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 file:border-0 file:rounded-full"
         onChange={handleFileChange}
       />
-      <Button disabled={loading}>{loading ? 'Loading...' : 'Upload'}</Button>
+      <Button className="self-center min-w-48" disabled={loading}>
+        {loading ? 'Loading...' : 'Upload'}
+      </Button>
       {errorMessage && (
         <p className="text-sm text-center text-gray-500">
           Oops! {errorMessage}.
