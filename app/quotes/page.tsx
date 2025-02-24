@@ -4,21 +4,17 @@ import { Search } from '@/components/Search';
 import useClippingStore from '@/store/clippingStore';
 import { useSearchParams } from 'next/navigation';
 
-type Props = {
-  searchParams: {
-    search?: string;
-  };
-};
+// type Props = {
+//   searchParams: {
+//     search?: string;
+//   };
+// };
 
-export default function QuotesPage({ searchParams }: Props) {
-  const { search } = searchParams;
+export default function QuotesPage() {
+  //const { search } = searchParams;
   const { quotes: rawQuotes } = useClippingStore();
-  const searchParams2 = useSearchParams();
-  console.log('Search param from props', search);
-  console.log(
-    'Search param from useSearchParams:',
-    searchParams2.get('search')
-  );
+  const searchParams = useSearchParams();
+  const search = searchParams.get('search');
 
   if (!rawQuotes) {
     return 'No quotes found';
