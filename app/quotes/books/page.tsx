@@ -44,7 +44,7 @@ export default function BooksPage({ searchParams }: Props) {
       <h2 className="text-xl font-semibold mb-3">Browse by Book</h2>
       {books.map((book, index) => (
         <Link
-          className="block py-1 hover:text-violet-700 transition-colors decoration-dashed underline underline-offset-4 decoration-1"
+          className="py-1 hover:text-violet-700 transition-colors "
           key={index}
           href={`/quotes/books?title=${encodeURIComponent(book)}`}
         >

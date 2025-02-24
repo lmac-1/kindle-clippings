@@ -1,5 +1,9 @@
+import { formatDate } from '@/lib/utils';
 import { Clipping } from '@/store/clippingStore';
+
 import Link from 'next/link';
+import { useMemo } from 'react';
+import { CopyButton } from '../CopyButton';
 
 type Props = {
   clipping: Clipping;
@@ -8,9 +12,14 @@ type Props = {
 export const Quote = ({ clipping }: Props) => {
   const { book, quote, date } = clipping;
   const bookLink = `/quotes/books?title=${encodeURIComponent(book)}`;
+  const formattedDate = useMemo(() => formatDate(date), [date]);
 
   return (
-    <figure className="bg-gray-50 rounded-md px-6 py-5">
+    <figure className="bg-gray-50 rounded-md px-6 pb-6 pt-12 relative">
+      <CopyButton
+        className="text-right block absolute top-2 right-2"
+        textToCopy={quote}
+      />
       <blockquote className="mb-3 text-lg before:content-['\201C'] after:content-['\201D']">
         {quote}
       </blockquote>
@@ -23,8 +32,10 @@ export const Quote = ({ clipping }: Props) => {
             {book}
           </Link>{' '}
         </cite>
-        <p className="italic">{date}</p>
       </figcaption>
+      <p className="italic text-xs text-gray-600 mt-1 text-right">
+        Highlighted on {formattedDate}
+      </p>
     </figure>
   );
 };
