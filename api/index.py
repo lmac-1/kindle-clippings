@@ -46,6 +46,12 @@ def process_author_name(author: str) -> str:
     # If name doesn't match the format, return it as is
     return author
 
+def is_clipping_highlight(metadata):
+    if "Your Highlight" in metadata:
+        return True
+    else:
+        return False
+
 def extract_quote_info(clipping):
     """Extracts quote information from a single clipping."""
     lines = clipping.strip().split('\n')
@@ -53,6 +59,12 @@ def extract_quote_info(clipping):
     if len(lines) < 4:
         #logging.warning(f"Not enough lines: {lines}")
         return None # skip if not a complete clipping
+    
+    # Determine whether it's a quote
+    metadata_line = lines[1].strip()
+    is_highlight = is_clipping_highlight(metadata_line)
+    if not is_highlight:
+        return None # skip if the quote is not a highlight
     
     # Extract book and author
     book_info = lines[0].strip()
@@ -82,7 +94,7 @@ def extract_quote_info(clipping):
         'book': book,
         'author': author,
         'quote': quote,
-        'date': formatted_date 
+        'date': formatted_date
     } 
     
 def process_clippings(clippings: list) -> dict:
@@ -95,10 +107,10 @@ def process_clippings(clippings: list) -> dict:
         quote_info = extract_quote_info(clipping)
         
         if (quote_info):
-            quotes.append(quote_info)
+            quotes.append(quote_info)           
             authors_set.add(quote_info["author"])
             books_set.add(quote_info["book"])
-                
+          
     return {
         "quotes": quotes, 
         "authors": sorted(authors_set), # Sorted alphabetically
