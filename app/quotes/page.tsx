@@ -2,6 +2,7 @@
 import { QuoteList } from '@/components/QuoteList';
 import { Search } from '@/components/Search';
 import useClippingStore from '@/store/clippingStore';
+import { useSearchParams } from 'next/navigation';
 
 type Props = {
   searchParams: {
@@ -12,6 +13,12 @@ type Props = {
 export default function QuotesPage({ searchParams }: Props) {
   const { search } = searchParams;
   const { quotes: rawQuotes } = useClippingStore();
+  const searchParams2 = useSearchParams();
+  console.log('Search param from props', search);
+  console.log(
+    'Search param from useSearchParams:',
+    searchParams2.get('search')
+  );
 
   if (!rawQuotes) {
     return 'No quotes found';
@@ -22,7 +29,6 @@ export default function QuotesPage({ searchParams }: Props) {
         quote.quote.toLowerCase().includes(search.toLowerCase())
       )
     : rawQuotes;
-  console.log(quotes);
 
   const totalQuotes = quotes.length;
 
