@@ -20,6 +20,12 @@ export const UploadClippings = () => {
     console.log('from store:', { quotes, authors, books });
   }, [quotes, authors, books]);
 
+  useEffect(() => {
+    if (file) {
+      setErrorMessage('');
+    }
+  }, [file]);
+
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0] || null;
     setFile(selectedFile);
@@ -73,7 +79,7 @@ export const UploadClippings = () => {
         className="block border border-gray-100 text-slate-500 focus:ring-2 outline-none rounded-full focus:ring-violet-400 text-sm mb-4 file:mr-4 file:py-2 file:px-4 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100 file:border-0 file:rounded-full"
         onChange={handleFileChange}
       />
-      <Button className="self-center min-w-48" disabled={loading}>
+      <Button className=" min-w-48" disabled={loading}>
         {loading ? 'Loading...' : 'Upload'}
       </Button>
       {errorMessage && (
