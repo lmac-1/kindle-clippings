@@ -1,6 +1,22 @@
+'use client';
+
+import { Loading } from '@/components/Loading';
 import { UploadClippings } from '@/components/UploadClippings';
+import { useState } from 'react';
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
+
+  if (loading)
+    return (
+      <div className="flex items-center flex-col gap-4">
+        <Loading />
+        <p className="text-sm text-gray-700">
+          We are preparing your quotes for you
+        </p>
+      </div>
+    );
+
   return (
     <div className="flex items-start flex-col gap-8">
       <div>
@@ -27,7 +43,7 @@ export default function Home() {
           <li>Upload the file here to get started</li>
         </ol>
       </div>
-      <UploadClippings />
+      <UploadClippings loading={loading} setLoading={setLoading} />
     </div>
   );
 }
