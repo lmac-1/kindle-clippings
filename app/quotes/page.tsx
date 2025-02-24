@@ -22,6 +22,7 @@ export default function QuotesPage({ searchParams }: Props) {
         quote.quote.toLowerCase().includes(search.toLowerCase())
       )
     : rawQuotes;
+  console.log(quotes);
 
   const totalQuotes = quotes.length;
 
