@@ -8,7 +8,8 @@ export default function Home() {
           Rediscover your Kindle highlights
         </h2>
         <p className="text-gray-700 font-light">
-          Upload, search and revisit the best parts of every book you've read.
+          Upload, search and revisit the best parts of every book you&apos;ve
+          read.
         </p>
       </div>
       <div>
