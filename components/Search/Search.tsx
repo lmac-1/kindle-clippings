@@ -19,16 +19,18 @@ export const Search = ({ totalQuotes }: { totalQuotes: number }) => {
   };
 
   return (
-    <div className="mb-6 w-100">
-      <h2 className="text-xl font-semibold mb-2">Search quotes</h2>
+    <div className="mb-6">
+      <div className="flex justify-between items-baseline">
+        <h2 className="text-xl font-semibold mb-2">Search quotes</h2>
+        <p className="text-gray-600 text-sm">
+          {totalQuotes} quote{totalQuotes > 1 && 's'} found
+        </p>
+      </div>
       <input
         onChange={handleSearch}
         placeholder="Search..."
         className="border rounded-md px-4 mb-2 py-2 w-full focus:ring-2 outline-none focus:ring-violet-300 focus:ring-offset-1"
       />
-      <p>
-        {totalQuotes} quote{totalQuotes > 1 && 's'} found
-      </p>
     </div>
   );
 };
