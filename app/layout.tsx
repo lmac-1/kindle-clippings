@@ -35,7 +35,15 @@ export default function RootLayout({
           <Link href="/" className="text-lg font-semibold">
             📚 My Kindle Clippings
           </Link>
-          <ResetStoreButton />
+          <div className="flex gap-6 items-baseline">
+            <Link
+              href="/about"
+              className="decoration-dashed underline underline-offset-4 decoration-1 hover:decoration-violet-600 transition-colors"
+            >
+              About
+            </Link>
+            <ResetStoreButton />
+          </div>
         </nav>
         <div className="grow max-w-xl mx-auto py-10">{children}</div>
         <Footer />
