@@ -38,14 +38,16 @@ export default function RootLayout({
           <div className="flex gap-6 items-baseline">
             <Link
               href="/about"
-              className="decoration-dashed underline underline-offset-4 decoration-1 hover:decoration-violet-600 transition-colors"
+              className="decoration-dashed underline underline-offset-4 decoration-1 hover:text-violet-600 transition-colors"
             >
               About
             </Link>
             <ResetStoreButton />
           </div>
         </nav>
-        <div className="grow max-w-xl mx-auto py-10">{children}</div>
+        <div className="grow w-full px-4 sm:px-0 sm:w-[70%] md:w-[50%] lg:w-[40%]  max-w-xl mx-auto py-10">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

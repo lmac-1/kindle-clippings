@@ -29,7 +29,8 @@ export default function BooksPage({ searchParams }: Props) {
             {parsedTitle}
           </h2>
           <p className="text-gray-700 text-sm">
-            {totalQuotes} quote{totalQuotes > 1 && 's'} found
+            {totalQuotes} quote{(totalQuotes === 0 || totalQuotes > 1) && 's'}{' '}
+            found
           </p>
         </div>
         <QuoteList quotes={filteredQuotes} />
@@ -43,7 +44,7 @@ export default function BooksPage({ searchParams }: Props) {
       <h2 className="text-xl font-semibold mb-3">Browse by Book</h2>
       {books.map((book, index) => (
         <Link
-          className="block py-1 hover:text-violet-700 transition-colors"
+          className="block py-1 hover:text-violet-700 transition-colors decoration-dashed underline underline-offset-4 decoration-1"
           key={index}
           href={`/quotes/books?title=${encodeURIComponent(book)}`}
         >

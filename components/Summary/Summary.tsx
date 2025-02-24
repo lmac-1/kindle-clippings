@@ -4,9 +4,11 @@ type Props = {
 };
 
 export const Summary = ({ totalQuotes, totalBooks }: Props) => {
-  const subText = `${totalQuotes} quote${
-    totalQuotes > 1 && 's'
-  } from ${totalBooks} book${totalBooks > 1 && 's'}`;
+  const subText = !totalQuotes
+    ? 'No quotes found'
+    : `${totalQuotes} quote${totalQuotes > 1 && 's'} from ${totalBooks} book${
+        totalBooks > 1 && 's'
+      }`;
 
   return (
     <div className="flex justify-center gap-2 flex-col items-center">
