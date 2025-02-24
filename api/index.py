@@ -33,6 +33,13 @@ async def upload_kindle_clippings(file: UploadFile | None = None):
     }
 
     return {"clippings": output}
+ 
+
+def clean_book_title(title: str) -> str:
+    """Converts underscores to spaces while preserving capitalisation."""
+    title = title.replace("_", " ")  # Replace underscores with spaces
+    title = re.sub(r'\s+', ' ', title).strip()  # Remove extra spaces
+    return title
     
 def process_author_name(author: str) -> str: 
     """Processes the author's name to a standardised format"""
@@ -74,6 +81,10 @@ def extract_quote_info(clipping):
         return None # skip if book title and author missing
     
     book, author_raw = match.groups()
+    
+    # Tidies book title up (removes underscores, which can create weird styling issues)
+    book = clean_book_title(book)
+    
     author = process_author_name(author_raw)
     
     # Extract date
