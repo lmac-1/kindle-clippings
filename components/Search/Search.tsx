@@ -4,6 +4,7 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 export const Search = ({ totalQuotes }: { totalQuotes: number }) => {
   const searchParams = useSearchParams();
+  const search = searchParams.get('search');
   const { replace } = useRouter();
   const pathname = usePathname();
 
@@ -29,6 +30,7 @@ export const Search = ({ totalQuotes }: { totalQuotes: number }) => {
       </div>
       <input
         onChange={handleSearch}
+        defaultValue={search || ''}
         placeholder="Search..."
         className="border w-full rounded-md px-4 mb-2 py-2 focus:ring-2 outline-none focus:ring-violet-300 focus:ring-offset-1"
       />
