@@ -26,7 +26,7 @@ export const Quote = ({ clipping }: Props) => {
       <figcaption className="text-sm text-right text-gray-600">
         <cite>
           <Link
-            className="outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-300 font-semibold"
+            className="outline-none hover:text-violet-600 focus:ring-2 focus:ring-offset-2 focus:ring-violet-300 font-semibold"
             href={bookLink}
           >
             {book}
