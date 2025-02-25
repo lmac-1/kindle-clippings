@@ -2,13 +2,16 @@
 import { QuoteList } from '@/components/QuoteList';
 import useClippingStore from '@/store/clippingStore';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
-type Props = {
-  searchParams: { title?: string };
-};
+// type Props = {
+//   searchParams: { title?: string };
+// };
 
-export default function BooksPage({ searchParams }: Props) {
-  const { title } = searchParams;
+export default function BooksPage() {
+  //const { title } = searchParams;
+  const searchParams = useSearchParams();
+  const title = searchParams.get('title');
   const { books, quotes } = useClippingStore();
 
   if (!quotes || !books) return 'No quotes/books found';
