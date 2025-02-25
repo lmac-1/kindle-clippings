@@ -32,6 +32,7 @@ In production, the FastAPI server is hosted as Python serverless functions on Ve
 - [ ] Write content for About page
 - [ ] Add Authors page
 - [ ] Remove Reset Store button
+  - [ ] Improve flow - for example, if there are quotes, perhaps take user straight to quotes. Have a upload link in the nav and when you go to home screen, it automaticaly resets your quotes
 - [ ] Pagination?
 - [ ] Make it work for Spanish - test with Luis' file
 - [ ] Improve colours/styling
