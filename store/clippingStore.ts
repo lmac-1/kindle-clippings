@@ -6,6 +6,7 @@ type Store = {
   books: Books;
   authors: Authors;
   updateData: (data: ClippingData) => void;
+  loading: boolean;
   resetData: () => void;
 };
 
@@ -32,6 +33,7 @@ const useClippingStore = create<Store>()(
   persist(
     (set, get) => ({
       ...initialState,
+      loading: true,
       updateData: (data: ClippingData) =>
         set({
           quotes: data.quotes,
@@ -42,6 +44,11 @@ const useClippingStore = create<Store>()(
     }),
     {
       name: 'kindle-clippings',
+      onRehydrateStorage: () => (state) => {
+        if (state) {
+          state.loading = false; // Set loading to false when Zustand rehydrates from storage
+        }
+      },
     }
   )
 );

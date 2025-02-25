@@ -1,6 +1,11 @@
-export const Loading = () => {
+import { cn } from '@/lib/utils';
+
+export const Loading = ({ className }: { className?: string }) => {
   return (
-    <div role="status" className="flex gap-4 items-center w-min">
+    <div
+      role="status"
+      className={cn('flex gap-4 items-center w-min', className)}
+    >
       <svg
         aria-hidden="true"
         className="inline w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-violet-600"

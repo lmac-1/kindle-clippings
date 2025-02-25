@@ -1,10 +1,12 @@
 'use client';
+import { Loading } from '@/components/Loading';
 import { Summary } from '@/components/Summary';
 import useClippingStore from '@/store/clippingStore';
 import Link from 'next/link';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { quotes, books } = useClippingStore();
+  const { loading, quotes, books } = useClippingStore();
+  if (loading) return <Loading className="mx-auto" />;
 
   if (!quotes && !books) {
     return <>Oops! No clippings found.</>;
