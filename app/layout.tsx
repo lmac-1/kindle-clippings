@@ -32,13 +32,16 @@ export default function RootLayout({
     <html lang="en" className={nunito.className}>
       <body className="antialiased min-h-screen flex flex-col">
         <nav className="flex justify-between border-b border-dashed items-baseline py-3 px-4">
-          <Link href="/" className="text-lg font-semibold">
+          <Link
+            href="/"
+            className="text-lg font-semibold outline-none focus:ring-2 rounded-md focus:ring-offset-2 focus:ring-violet-300"
+          >
             📚 My Kindle Clippings
           </Link>
           <div className="flex gap-6 items-baseline">
             <Link
               href="/about"
-              className="decoration-dashed underline underline-offset-4 decoration-1 hover:text-violet-600 transition-colors"
+              className="outline-none focus:ring-2 rounded-md focus:ring-offset-2 focus:ring-violet-300 decoration-dashed underline underline-offset-4 decoration-1 hover:text-violet-600 transition-colors"
             >
               About
             </Link>

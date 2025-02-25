@@ -17,7 +17,7 @@ export const Quote = ({ clipping }: Props) => {
   return (
     <figure className="bg-gray-50 rounded-md px-6 pb-6 pt-12 relative">
       <CopyButton
-        className="text-right block absolute top-2 right-2"
+        className="text-right block absolute top-3 right-4"
         textToCopy={quote}
       />
       <blockquote className="mb-3 text-lg before:content-['\201C'] after:content-['\201D']">

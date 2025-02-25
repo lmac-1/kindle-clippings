@@ -22,9 +22,10 @@ export const CopyButton = ({ textToCopy, className }: Props) => {
     <div className={cn('relative inline-flex', className)}>
       <button
         onClick={handleCopy}
-        className="peer text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2 inline-flex items-center justify-center"
+        className="peer outline-none focus:ring-2 focus:ring-violet-300 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-1 inline-flex items-center justify-center"
       >
         <Icon />
+        <span className="sr-only">Copy text</span>
       </button>
       <div
         className={`absolute left-1/2 -translate-x-1/2 -top-8 px-3 py-1 text-sm font-medium text-white bg-gray-900 rounded-lg shadow transition-opacity ${
