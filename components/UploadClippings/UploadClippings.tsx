@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Button } from '../Button';
 import useClippingStore from '@/store/clippingStore';
 import { useRouter } from 'next/navigation';
+import { demoData } from '@/data/demo';
 
 type Props = { loading: boolean; setLoading: (value: boolean) => void };
 
@@ -30,6 +31,12 @@ export const UploadClippings = ({ loading, setLoading }: Props) => {
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0] || null;
     setFile(selectedFile);
+  };
+
+  const handleDemo = () => {
+    setLoading(true);
+    updateClippings(demoData);
+    router.push('/quotes');
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -92,7 +99,10 @@ export const UploadClippings = ({ loading, setLoading }: Props) => {
       </div>
       <p className="text-gray-600">
         No clippings file?{' '}
-        <button className="decoration-dashed underline underline-offset-4 decoration-1 hover:text-violet-600 transition-colors">
+        <button
+          onClick={handleDemo}
+          className="decoration-dashed focus:ring-2 focus:ring-offset-1 rounded-md focus:ring-violet-400 focus:outline-none underline underline-offset-4 decoration-1 hover:text-violet-600 transition-colors"
+        >
           Use our demo data
         </button>{' '}
         to try out the application
