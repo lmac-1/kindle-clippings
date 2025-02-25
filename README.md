@@ -22,8 +22,17 @@ In production, the FastAPI server is hosted as Python serverless functions on Ve
 
 ## Todo
 
-- [ ] Handle notes aswell as highlights
-- [ ] Add ability to run with dummy data
+**Top tip**: When working on personal coding projects, try to keep a todo list handy, so that you know what to work on when you come back to it :)
+
+- [x] Handle notes aswell as highlights
+- [x] Add ability to run with dummy data
 - [ ] Sort quotes by date ascending, descending
 - [ ] Improve processing to get rid of some duplicates
-- [ ] Add About page
+- [x] Add About page
+- [ ] Write content for About page
+- [ ] Add Authors page
+- [ ] Remove Reset Store button
+- [ ] Pagination?
+- [ ] Make it work for Spanish - test with Luis' file
+- [ ] Improve colours/styling
+- [ ] Add more quotes to demo data
