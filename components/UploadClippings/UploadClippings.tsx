@@ -70,8 +70,7 @@ export const UploadClippings = ({ loading, setLoading }: Props) => {
       const { clippings } = body;
       updateClippings(clippings);
       console.timeLog('loading');
-      setLoading(false);
-      //router.push('/quotes');
+      router.push('/quotes');
     } catch (error) {
       console.error({ error });
       setErrorMessage('Something went wrong');
