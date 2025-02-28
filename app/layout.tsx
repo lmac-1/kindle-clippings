@@ -48,7 +48,7 @@ export default function RootLayout({
             <ResetStoreButton />
           </div>
         </nav>
-        <div className="grow w-full px-4 sm:px-0 sm:w-[70%] md:w-[50%] lg:w-[40%]  max-w-xl mx-auto py-10">
+        <div className="grow w-full px-4 sm:px-0 sm:w-[70%] md:w-[50%] lg:w-[40%]  max-w-xl mx-auto py-5 sm:py-10">
           {children}
         </div>
         <Footer />

@@ -12,7 +12,7 @@ export const Summary = ({ totalQuotes, totalBooks }: Props) => {
 
   return (
     <div className="flex justify-center gap-2 flex-col items-center">
-      <h2 className="font-bold text-4xl">Your Kindle Clippings</h2>
+      <h2 className="font-bold text-3xl sm:text-4xl">Your Kindle Clippings</h2>
       <p className="text-sm text-gray-600 italic">{subText}</p>
     </div>
   );

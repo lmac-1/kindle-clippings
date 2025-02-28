@@ -18,18 +18,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Summary totalQuotes={quotes.length} totalBooks={books.length} />
       )}
       {quotes && books && (
-        <div className="mt-4 mb-8 flex gap-6 justify-center">
+        <div className="mt-2 sm:mt-4 mb-8 flex gap-6 justify-center">
           <Link
             className="text-violet-700 outline-none focus:ring-2 rounded-md focus:ring-offset-2 focus:ring-violet-300 hover:text-violet-900 font-semibold block text-center"
             href="/quotes"
           >
-            All quotes
+            Quotes
           </Link>
           <Link
             className="text-violet-700 outline-none focus:ring-2 rounded-md focus:ring-offset-2 focus:ring-violet-300 hover:text-violet-900 font-semibold block text-center"
             href="/quotes/books"
           >
-            All books
+            Books
+          </Link>
+          <Link
+            className="text-violet-700 outline-none focus:ring-2 rounded-md focus:ring-offset-2 focus:ring-violet-300 hover:text-violet-900 font-semibold block text-center"
+            href="/quotes/authors"
+          >
+            Authors
           </Link>
         </div>
       )}
