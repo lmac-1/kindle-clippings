@@ -40,6 +40,7 @@ export const UploadClippings = ({ loading, setLoading }: Props) => {
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    console.time('loading');
     event.preventDefault();
     setLoading(true);
     setErrorMessage('');
@@ -68,7 +69,9 @@ export const UploadClippings = ({ loading, setLoading }: Props) => {
 
       const { clippings } = body;
       updateClippings(clippings);
-      router.push('/quotes');
+      console.timeLog('loading');
+      setLoading(false);
+      //router.push('/quotes');
     } catch (error) {
       console.error({ error });
       setErrorMessage('Something went wrong');
