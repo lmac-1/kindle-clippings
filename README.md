@@ -29,7 +29,7 @@ In production, the FastAPI server is hosted as Python serverless functions on Ve
 - [ ] Sort quotes by date ascending, descending
 - [ ] Improve processing to get rid of some duplicates
 - [x] Add About page
-- [ ] Write content for About page
+- [x] Write content for About page
 - [x] Add Authors page
 - [ ] Remove Reset Store button
   - [ ] Improve flow - for example, if there are quotes, perhaps take user straight to quotes. Have a upload link in the nav and when you go to home screen, it automaticaly resets your quotes
